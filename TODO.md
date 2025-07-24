@@ -1,41 +1,41 @@
 # TODO & Sugestões de Melhorias
 
-Este projeto já cobre todos os requisitos do desafio, mas aqui vão algumas ideias e melhorias que podem ser implementadas para deixá-lo ainda mais robusto e pronto para produção real:
+O projeto já cobre tudo que foi pedido no desafio, mas sempre dá pra deixar mais robusto e pronto pra produção. Algumas ideias que eu mesmo priorizaria se fosse evoluir:
 
-- [ ] **Adicionar autenticação e autorização**
-  - Permitir que apenas usuários autenticados possam criar posts/comentários.
-  - Diferenciar permissões (ex: autor pode editar/deletar seu post).
+- [ ] **Autenticação e autorização**
+  - Só usuários autenticados podem criar posts/comentários.
+  - Permissões: autor pode editar/deletar seu post.
 
-- [ ] **Paginação e filtros nos endpoints**
-  - Adicionar paginação em `/api/posts` e `/api/posts/:id/comments` para evitar retornos muito grandes.
-  - Permitir busca por título ou conteúdo.
+- [ ] **Paginação e filtros**
+  - Paginação em `/api/posts` e `/api/posts/:id/comments`.
+  - Filtro por título/conteúdo.
 
-- [ ] **Validações mais avançadas**
+- [ ] **Validações mais rígidas**
   - Limitar tamanho de título/conteúdo.
-  - Prevenir spam de comentários.
+  - Prevenir spam.
 
 - [ ] **Testes automatizados**
-  - Cobrir rotas principais com testes de integração (ex: Jest + Supertest).
+  - Cobrir rotas principais (Jest + Supertest).
   - Testar casos de erro e borda.
 
-- [ ] **Documentação OpenAPI/Swagger**
-  - Gerar documentação interativa para facilitar integração de terceiros.
+- [ ] **Swagger/OpenAPI**
+  - Documentação interativa pra facilitar integração.
 
-- [ ] **Deploy automatizado (CI/CD)**
-  - Configurar pipeline para deploy automático (ex: GitHub Actions).
+- [ ] **CI/CD**
+  - Pipeline de deploy automático (ex: GitHub Actions).
 
-- [ ] **Melhor tratamento de erros**
-  - Padronizar respostas de erro e logar exceções para monitoramento.
+- [ ] **Tratamento de erros**
+  - Padronizar respostas e logar exceções.
 
 - [ ] **Rate limiting**
-  - Proteger a API contra abuso com limites de requisições.
+  - Proteger a API contra abuso.
 
-- [ ] **Permitir edição e deleção de posts/comentários**
-  - Endpoints para update/delete, respeitando regras de permissão.
+- [ ] **Permitir edição/deleção de posts/comentários**
+  - Endpoints de update/delete, respeitando permissões.
 
-- [ ] **Melhorar o README**
-  - Adicionar exemplos de requisições (curl/Postman) e prints de respostas.
+- [ ] **README mais completo**
+  - Exemplos de requisições e prints de respostas.
 
 ---
 
-Se for evoluir o projeto, priorizar autenticação, paginação e testes automatizados. Qualquer dúvida ou sugestão, só chamar! 
+Se for evoluir, priorize autenticação, paginação e testes. Qualquer dúvida ou sugestão, só chamar! 

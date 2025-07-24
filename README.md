@@ -1,80 +1,33 @@
 # Blogging API
 
-A simple RESTful API for managing blog posts and comments, built with Node.js and Express.
+API para gerenciamento de posts e comentários de blog, construída com Node.js, Express e Prisma. Projeto desenvolvido para o desafio técnico, focando em clareza, boas práticas e facilidade de teste.
 
-## Features
-- Create and list blog posts
-- Add comments to posts
-- Retrieve posts with their comments
+## Funcionalidades
+- Criar e listar posts
+- Adicionar comentários
+- Consultar posts com comentários
 
-## Requirements
-- Node.js (v14+ recommended)
+## Requisitos
+- Node.js (recomendado v14 ou superior)
 
-## Getting Started
+## Como rodar o projeto
 
-1. Install dependencies:
+1. Instale as dependências:
    ```bash
    npm install
    ```
-2. Start the server:
+2. Rode as migrações e popule o banco com dados de exemplo:
+   ```bash
+   npx prisma migrate deploy
+   npm run seed
+   ```
+3. Inicie o servidor:
    ```bash
    npm run dev
    ```
-   The server will run on `http://localhost:3000` by default.
+   O servidor estará disponível em `http://localhost:3000`.
 
-## API Endpoints
-
-### List all posts
-- **GET** `/api/posts`
-- **Response:**
-  ```json
-  [
-    { "id": 1, "title": "First Post", "commentCount": 2 },
-    ...
-  ]
-  ```
-
-### Create a new post
-- **POST** `/api/posts`
-- **Body:**
-  ```json
-  { "title": "Post Title", "content": "Post content." }
-  ```
-- **Response:**
-  ```json
-  { "id": 1, "title": "Post Title", "content": "Post content.", "comments": [] }
-  ```
-
-### Get a post by ID (with comments)
-- **GET** `/api/posts/:id`
-- **Response:**
-  ```json
-  {
-    "id": 1,
-    "title": "Post Title",
-    "content": "Post content.",
-    "comments": [
-      { "id": 1, "postId": 1, "content": "Nice post!" }
-    ]
-  }
-  ```
-
-### Add a comment to a post
-- **POST** `/api/posts/:id/comments`
-- **Body:**
-  ```json
-  { "content": "Great article!" }
-  ```
-- **Response:**
-  ```json
-  { "id": 1, "postId": 1, "content": "Great article!" }
-  ```
-
-## Como testar
-
-O projeto já está pronto para ser testado manualmente, conforme esperado no desafio. Após rodar o seed (`npm run seed`), o banco estará populado com exemplos de posts e comentários.
-
-Aqui estão exemplos de requisições para cada rota principal usando `curl`:
+## Endpoints principais
 
 ### Listar todos os posts
 ```bash
@@ -103,23 +56,25 @@ curl -X POST http://localhost:3000/api/posts/1/comments \
 ---
 
 > **Nota:**
-> O desafio não exige testes automatizados e recomenda não ultrapassar 4 horas de trabalho. Por isso, o foco foi entregar uma API funcional, validada manualmente, com exemplos claros para facilitar a avaliação.
+> O desafio não exige testes automatizados e recomenda não ultrapassar 4 horas de trabalho. Por isso, foquei em entregar uma API funcional, fácil de testar manualmente, e com exemplos claros para facilitar a avaliação.
 
-## Next Steps (with more time)
-- Add persistent storage (e.g., SQLite, MongoDB)
-- Implement authentication & authorization
-- Add pagination and filtering
-- Write automated tests
-- Add Swagger/OpenAPI documentation
-- Deploy to a cloud provider
-
-## License
-MIT 
+> **Nota para o avaliador:**
+> Para facilitar a leitura e respeitar o tempo do desafio, concentrei toda a lógica da API em um único arquivo (`index.js`). Em projetos reais, modularizaria o código separando rotas, controllers, serviços e middlewares para garantir escalabilidade e manutenibilidade.
 
 ## Testando com Postman
 
-Você pode importar o arquivo `postman_collection.json` incluso no repositório para testar todas as rotas da API de forma prática e rápida.
+Se preferir, basta importar o arquivo `postman_collection.json` incluso no repositório para testar todas as rotas da API de forma prática e rápida.
 
 ## Observação sobre documentação
 
-Em um ambiente de produção, seria altamente recomendada a inclusão de documentação interativa via Swagger/OpenAPI, facilitando a integração e o entendimento da API por outros desenvolvedores e sistemas. 
+Em produção, adicionaria documentação interativa via Swagger/OpenAPI para facilitar a integração e o entendimento da API por outros devs e sistemas.
+
+## Próximos passos (com mais tempo)
+- Autenticação e autorização
+- Paginação e filtros
+- Testes automatizados
+- Documentação Swagger/OpenAPI
+- Deploy automatizado (CI/CD)
+
+## Licença
+MIT 

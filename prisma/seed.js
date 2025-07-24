@@ -2,11 +2,11 @@ const { PrismaClient } = require('@prisma/client');
 const prisma = new PrismaClient();
 
 async function main() {
-  // Remove dados antigos
+  // Limpa dados antigos para evitar duplicidade
   await prisma.comment.deleteMany();
   await prisma.blogPost.deleteMany();
 
-  // Cria posts
+  // Cria alguns posts de exemplo
   const post1 = await prisma.blogPost.create({
     data: {
       title: 'Primeiro post',
@@ -41,7 +41,7 @@ async function main() {
     },
   });
 
-  console.log('Seed concluído!');
+  console.log('Seed concluído! Banco populado com exemplos.');
 }
 
 main()
